@@ -1,0 +1,74 @@
+body{
+    margin-right: 2%;
+    margin-left: 2%;
+    margin-top: 1%;
+    background-image:url("https://i.ibb.co/qMJ3q6F/f587cc3a937ef1b10a4619fa81a2ee31.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.container{
+    height:7%;
+    width:39%;
+    box-shadow: 0px 3px 15px white;
+    border-radius:4%;
+    background-color: black transparent;
+}
+.heading-containe{
+    font-size:48px;
+    font-weight:bold; 
+    
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#input-btn{
+    margin-top: 1%;
+    margin-left: 2%;
+    width:78%;
+    height:62%;
+    font-weight: bold;
+    font-size:17px;
+    border-radius: 3%;
+}
+#box{
+ margin-left:34%;
+ margin-top:3%;
+ font-size:40px;
+ font-weight: bold; 
+ box-shadow: 0px 3px 15px white;
+ height:65%;
+ width:35%;
+ border-radius: 10%;
+ display:block;
+ background-color:black transparent;
+ color: white;
+}
+#city{
+    font-size:65px;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times,;
+}
+
+#temp{
+    font-size:69px;
+    color: #192f60;
+    font-weight: bold;
+    
+}
+#weather{
+    font-size:48px;
+    font-weight: bold;
+    
+}
+#ok{
+    font-size:32px;
+    
+}
+#ko{
+    font-size:32px;
+    
+}
+.icon{
+    height:100px;
+    width:100px;
+    
+}
+

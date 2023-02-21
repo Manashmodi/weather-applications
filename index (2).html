@@ -1,0 +1,145 @@
+<html>
+    <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+      <link rel="stylesheet" href="w.css"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body{
+    margin-right: 2%;
+    margin-left: 2%;
+    margin-top: 1%;
+    background-image:url("https://i.ibb.co/qMJ3q6F/f587cc3a937ef1b10a4619fa81a2ee31.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.container{
+    height:7%;
+    width:39%;
+    box-shadow: 0px 3px 15px white;
+    border-radius:4%;
+    background-color: black transparent;
+}
+.heading-containe{
+    font-size:48px;
+    font-weight:bold; 
+    
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#input-btn{
+    margin-top: 1%;
+    margin-left: 2%;
+    width:78%;
+    height:62%;
+    font-weight: bold;
+    font-size:17px;
+    border-radius: 3%;
+}
+#box{
+ margin-left:34%;
+ margin-top:3%;
+ font-size:40px;
+ font-weight: bold; 
+ box-shadow: 0px 3px 15px white;
+ height:65%;
+ width:35%;
+ border-radius: 10%;
+ display:block;
+ background-color:black transparent;
+ color: white;
+}
+#city{
+    font-size:65px;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times,;
+}
+
+#temp{
+    font-size:69px;
+    color: #192f60;
+    font-weight: bold;
+    
+}
+#weather{
+    font-size:48px;
+    font-weight: bold;
+    
+}
+#ok{
+    font-size:32px;
+    
+}
+#ko{
+    font-size:32px;
+    
+}
+.icon{
+    height:100px;
+    width:100px;
+    
+}
+
+</style>
+    </head>
+    <body> 
+      
+        <div class="text-center">
+          <p class="heading-containe">WEATHER APPLICATION</p>
+         </div>
+         <hr>
+            <div class="container" class="text-center"> 
+           <input type="text" id="input-btn"name="search box" placeholder="Enter city..... ">
+           <button class="btn btn-success btn-md button" id="submit-btn">SUBMIT</button>
+            </div> 
+          
+            <div id="box" class="text-center">
+           
+              <div id="city" >
+                DELHI
+              </div>
+                <p ><span id="temp">31</span>&deg;C</p>
+                <p id="weather">clear<div  class="ic"> <img src="http://openweathermap.org/img/wn/10d@2x.png" class="icon" /></div>
+             <p id="ko" > MAX: <span id="temp_max">32.0</span>&deg;C</p> 
+              <p id="ok" > MIN:<span id="temp_min" >34.0</span>&deg;C </p>
+           
+          </div>
+         
+    
+          <script >const submitBtn = document.getElementById('submit-btn');
+            submitBtn.addEventListener('click', function() {
+              const inputbtn = document.getElementById('input-btn').value;
+               fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputbtn+'&appid=5bc6a7b224671f4a6b9603c21f1b2bf6')
+               .then((res) => res.json())
+               .then((data) =>{
+                 
+                
+                  const cityName = data.name;
+                  const tem = data.main.temp;
+                  const temp = tem-273;
+                  const tem_max = data.main.temp_max;
+                  const temp_max = tem_max-273.15;
+                 const tem_min = data.main.temp_min;
+                 const temp_min = tem_min-273.15;
+                 const weather = data. weather[0].description;
+                 const weathe = data.weather[0].icon;
+                 
+                 
+                  
+            
+                 document.getElementById('city').innerText =cityName;
+                 document.getElementById('temp').innerText =temp.toFixed(2);
+                 document.getElementById('temp_max').innerText =temp_max.toFixed(2);
+                 document.getElementById('temp_min').innerText =temp_min.toFixed(2);
+                 document.getElementById('weather').innerText =weather;
+                 document.querySelector(".icon").src="http://openweathermap.org/img/wn/"+weathe+".png";
+                
+                 
+            
+                 
+                  
+               })
+             
+            })</script>
+    </body>
+</html>
